@@ -18,7 +18,7 @@ namespace Microsoft.DotNet.HotReload.Utils.Generator {
                 return new Runners.ScriptRunner (config);
         }
         public async Task Run (CancellationToken ct = default) {
-            await PrepareToRun();
+            await PrepareToRun(ct);
             var baselineArtifacts = await SetupBaseline (ct);
 
             var deltaProject = new DeltaProject (baselineArtifacts, PrepareCapabilities());
